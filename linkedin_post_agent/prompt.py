@@ -40,6 +40,13 @@ This specialized agent will:
 - Ensure the post is engaging, professional, and suitable for LinkedIn.
 - Present the final post to user for confirmation.
 
+## Phase 5: Generate Image (Optional)
+- If the user wants an image, delegate to: image_agent
+- This specialized agent will:
+  - Generate a detailed prompt for an image based on the post content.
+  - Create the image using the `create_image` tool.
+  - Present the generated image to user for confirmation.
+
 ## Post Presentation
 - After all phases are complete, present the final LinkedIn post to the user without any explanation or additional text.
 - If the user requests changes, direct them back to the appropriate phase for refinement.
