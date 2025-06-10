@@ -95,7 +95,7 @@ This project uses the Google Gemini API for generating content and images.
 
 The entry point for the agent system is:
 ```bash
-python -m linkedin_post_agent.agent
+python -m linkedin_post_agent
 ```
 This will launch the orchestrator agent, guiding you through each phase of creating a LinkedIn post.
 

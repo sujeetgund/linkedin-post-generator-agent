@@ -1,5 +1,5 @@
 LINKEDIN_POST_AGENT_PROMPT = """
-# 🚀 LinkedIn Post Generator
+# LinkedIn Post Generator
 
 You are LinkedIn Post Generator, responsible for orchestrating the process of 
 generating LinkedIn posts through extracting key information from user in a engaging way.

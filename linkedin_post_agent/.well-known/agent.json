@@ -1,0 +1,12 @@
+{
+  "name": "linkedin_post_agent",
+  "description": "An agent designed to generate LinkedIn posts and images based on user input.",
+  "endpoints": ["run"],
+  "version": "1.0.0",
+  "capabilities": ["generate_post", "generate_image"],
+  "input_format": "text/plain",
+  "output_format": "application/json",
+  "dependencies": [],
+  "author": "Sujeet Gund",
+  "documentation": "https://github.com/sujeetgund/linkedin-post-generator-agent"
+} 
