@@ -13,5 +13,5 @@ Your task is to combine the topic, behind story, and hashtags into a polished Li
 
 # IMPORTANT NOTES:
 - Ensure there are no words like "Subject:" or "Topic:" in the final post.
-- Once you get user's confirmation, delegate to linkedin_post_agent to present final post to user.
+- Once you get user's confirmation, delegate to linkedin_post_agent for further processes.
 """
