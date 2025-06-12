@@ -5,10 +5,8 @@ A modular, agent-based system for crafting engaging LinkedIn posts. This project
 
 ## 📝 Project Overview
 
-I started this project because I noticed a growing trend:  
-People are increasingly posting on LinkedIn, but too often, these posts start to sound the same — they all have that unmistakable AI-generated tone.
-
-If we’re using AI to craft posts anyway, why not create a tool that helps **users generate posts that are truly engaging** and **resonate with their own voice and intentions**?
+I launched this project after noticing a clear pattern - While more people are sharing on LinkedIn, many posts end up blending together, often carrying that generic, AI-generated feel.
+If AI is already part of the process, why not build a tool that empowers **users to create posts that stand out** and **authentically reflect their unique voice and goals**?
 
 This project implements a multi-phase, agent-based workflow to do just that:
 
@@ -30,25 +28,25 @@ All phases are orchestrated by a manager agent, delegating to sub-agents for eac
 ├── LICENSE
 ├── README.md
 ├── requirements.txt
-├── linkedin_post_agent/
-│ ├── .env.example
-│ ├── agent.py
-│ ├── constants.py
-│ ├── prompt.py
-│ ├── sub_agents/
-│ │ ├── hashtag_agent/
-│ │ │ ├── agent.py
-│ │ │ └── prompt.py
-│ │ ├── image_agent/
-│ │ │ ├── agent.py
-│ │ │ ├── prompt.py
-│ │ │ └── tools/create_image.py
-│ │ ├── post_agent/
-│ │ │ ├── agent.py
-│ │ │ └── prompt.py
-│ │ └── story_agent/
-│ │   ├── agent.py
-│ │   └── prompt.py
+└── linkedin_post_agent/
+    ├── .env
+    ├── agent.py
+    ├── constants.py
+    ├── prompt.py
+    └── sub_agents/
+        ├── story_agent/
+        │   ├── agent.py
+        │   └── prompt.py
+        ├── hashtag_agent/
+        │   ├── agent.py
+        │   └── prompt.py
+        ├── post_agent/
+        │   ├── agent.py
+        │   └── prompt.py
+        └── image_agent/
+            ├── agent.py
+            ├── prompt.py
+            └── tools/create_image.py
 ```
 
 
@@ -70,34 +68,61 @@ pip install -r requirements.txt
 ```
 
 
-## 🔑 API Setup
+## 🔑 Setting up Application Secrets
+
+Create a `.env` file in the `linkedin_post_agent/` directory based on the provided `.env.example` file:
+
+```bash
+cd linkedin_post_agent
+cp .env.example .env
+```
+
+### Google API
 
 This project uses the Google Gemini API for generating content and images.
 
 1. Visit the [Google AI Studio](https://aistudio.google.com/app/apikey).
 2. Sign in with your Google account.
 3. Click **"Create API key"** and copy it.
-4. Create a `.env` file in the `linkedin_post_agent/` directory based on the provided `.env.example` file:
 
-   ```bash
-    cd linkedin_post_agent
-    cp .env.example .env
-    ```
-
-6. Add your Gemini API key to `.env`:
+4. Add your Gemini API key to `.env`:
 
     ```
     GOOGLE_API_KEY=your_gemini_api_key
     ```
 
+### Cloudinary API
+
+To enable image uploads, you'll need to set up Cloudinary credentials:
+
+1. [Sign up for a free Cloudinary account](https://cloudinary.com/users/register) if you don't have one.
+2. After logging in, go to your [Cloudinary Dashboard](https://cloudinary.com/console).
+3. Locate your **Cloud name**, **API Key**, and **API Secret** under the "Account Details" section.
+4. Add these values to your `.env` file:
+
+    ```
+    CLOUDINARY_CLOUD_NAME=your_cloud_name
+    CLOUDINARY_API_KEY=your_api_key
+    CLOUDINARY_API_SECRET=your_api_secret
+    ```
+
+These credentials allow the agent to upload and manage images for your LinkedIn posts.
 
 ## 🚀 Running the Agent
 
-The entry point for the agent system is:
+To start the agent system, run:
+
 ```bash
 python -m linkedin_post_agent
 ```
-This will launch the orchestrator agent, guiding you through each phase of creating a LinkedIn post.
+
+This command launches the FastAPI server, allowing you to generate LinkedIn posts through an interactive, agent-driven workflow.
+
+For development and debugging, you can also launch the Google ADK developer UI with:
+
+```bash
+adk web
+```
 
 
 ## ❕ Example Workflow
